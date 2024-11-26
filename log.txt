@@ -1,0 +1,9 @@
+        Thought process in solving the assignment
+Got the csv data
+The data has multiple inputs and one output, making multilinear regression a good start. Also it is going to be a supervised model
+So far, i don't see a need for data cleaning so i will start with it as it is. All the data seems to be numerical and non-string or float.
+I will devide the data into training and testing set. 70,30 percent respectively
+using anaconda to create a virutal environment for it. The env has numpy,pandas,scikit-learn and matplotlib so far.
+implemented a simple multilinear regression model
+implemented a simple svm model
+models need to be finetuned and properly tested
