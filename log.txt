@@ -5,5 +5,30 @@ So far, i don't see a need for data cleaning so i will start with it as it is. A
 I will devide the data into training and testing set. 70,30 percent respectively
 using anaconda to create a virutal environment for it. The env has numpy,pandas,scikit-learn and matplotlib so far.
 implemented a simple multilinear regression model
-implemented a simple svm model
-models need to be finetuned and properly tested
+implemented a simple svr model as well
+output graph is similar for both
+model need to be finetuned and properly tested
+did some finetuning
+result wasn't optimal. MSE = 0.15, MAE = 0.35. the closer it is to 1 the better, meaning this is very bad.
+added graph using matplotlib
+i have analayzed the output graph and am convinced this might be a classification problem instead since the output is either 1 0r 0, yes or no
+going to try implementing a binary classification solution
+will implement logistic regression for classification. 
+logistic regression is clearly a better fitting solution. accuracy-0.73
+default itteration is 100, going to increase that 500. same accuracy-0.73
+going to use scalar to scale the data. accuracy decrease to 0.72
+removed scaler.
+added a low reguralization incase there is an overfitting. C=0.1. accuracy 0.73
+tried sag and saga solvers. .72 and .73 accuracy respectively
+tried different values for C. highest accuracy reached remains 0.73
+decreased the data split to 60,40. which improved the accuracy to 0.76
+implemented svm
+tried linear kernel for decison boundary. accuracy 0.71
+we have non-linear input data so tried rbf, accuracy increasd to 0.94!
+also added reguralization C=3.0, lower C lowers accuracy, higher C doesn't improve
+going to implement Random forest and see if that improves anything
+
+
+
+
+
