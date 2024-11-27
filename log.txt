@@ -19,13 +19,13 @@ default itteration is 100, going to increase that 500. same accuracy-0.73
 going to use scalar to scale the data. accuracy decrease to 0.72
 removed scaler.
 added a low reguralization incase there is an overfitting. C=0.1. accuracy 0.73
-tried sag and saga solvers. .72 and .73 accuracy respectively
+tried sag and saga solvers. .72 and .71 accuracy respectively
 tried different values for C. highest accuracy reached remains 0.73
 decreased the data split to 60,40. which improved the accuracy to 0.76
 implemented svm
 tried linear kernel for decison boundary. accuracy 0.71
-we have non-linear input data so tried rbf, accuracy increasd to 0.94!
-also added reguralization C=3.0, lower C lowers accuracy, higher C doesn't improve
+we have non-linear input data as seen in 'xplot.py' so tried rbf, accuracy increasd to 0.91!
+also added reguralization C=3.0. accuraccy increased to 0.94! lower C lowers accuracy, higher C doesn't improve
 going to implement Random forest and see if that improves anything
 
 
