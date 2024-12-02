@@ -30,5 +30,23 @@ going to implement Random forest and see if that improves anything
 
 
 
+------------------------------------Problem 2----------------------------------------------------------------------
+I've gotten the data and started with data cleaning first. The csv data is filled with numerical, string, and float values, which means that some data cleaning is required.
+The string values are catagorical and need to be encoded to numerical values.
+We can use either Label encoder or One Hot Encoding
+Label Encoding is good for ordianl data, while One Hot encoding is good for non-ordianl data.
+With Label Encoding i get the following result
+mean_squared_error :  2335.762251930094
+mean_absolute_error :  38.73413494045972
+R2:  0.08190315105789459
+which is highly inaccurate!
+Result with one hot enconding:
+mean_squared_error :  2335.762251930094
+mean_absolute_error :  38.73413494045972
+R2:  0.08190315105789459
+which is equally as inaccurate!
+
+
+
 
 
