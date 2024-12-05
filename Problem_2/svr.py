@@ -28,7 +28,7 @@ y_train_scaled = scaler_y.fit_transform(y_train.to_numpy().reshape(-1, 1)).ravel
 y_test_scaled = scaler_y.transform(y_test.to_numpy().reshape(-1, 1)).ravel()
 
 # Create and train the SVR model
-svr = SVR(kernel='linear', C=1.0)  # Use a linear kernel for multilinear regression
+svr = SVR(kernel='rbf', C=1.0)  # Use a linear kernel for multilinear regression
 svr.fit(X_train_scaled, y_train_scaled)
 
 # Predict on the test set
