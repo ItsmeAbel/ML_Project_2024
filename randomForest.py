@@ -2,6 +2,11 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+from joblib import dump
+
+def save_model():
+    #dumb the trained model into a joblib file
+    dump(rf_model, "randomForestModel.joblib")
 
 # Load dataset
 df = pd.read_csv('cleaned_merged_heart_dataset.csv')
@@ -30,7 +35,11 @@ print("Accuracy:", accuracy)
 conf_matrix = confusion_matrix(y_test, y_pred)
 print("Confusion Matrix:\n", conf_matrix)
 
+
 # Classification Report
 class_report = classification_report(y_test, y_pred)
 print("Classification Report:\n", class_report)
+
+save_model()
+
 
