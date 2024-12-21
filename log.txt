@@ -72,6 +72,12 @@ R-squared Score: -0.8617762480146001
 -the model is more or less of by 69, but the r2 value shows that decison tree performs worse than multilinear
 
 next up, random forest.
-
+Random forest gives the following result:
+Model Evaluation:
+Mean Squared Error (MSE): 2461.65
+Root Mean Squared Error (RMSE): 49.62
+Mean Absolute Error (MAE): 39.75
+R-squared (R2): 0.06
+which isn't any better that what we've tried so far
 
 
