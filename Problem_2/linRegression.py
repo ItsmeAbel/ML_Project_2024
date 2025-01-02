@@ -5,7 +5,7 @@ from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 
 
-RawData = pd.read_csv("OHEcleanedData.csv") #read the csv file using pandas
+RawData = pd.read_csv("LabelcleanedData.csv") #read the csv file using pandas
 
 #define the inputs
 xinp = RawData.drop(columns = ['credit_score'])

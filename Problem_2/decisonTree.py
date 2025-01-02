@@ -5,7 +5,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 import pdb
 
 # Step 1: Load the dataset from a CSV file
-file_path = 'labelcleanedData.csv'  # Replace with your CSV file path
+file_path = 'OHEcleanedData.csv'  # Replace with your CSV file path
 RawData = pd.read_csv(file_path)
 
 # Step 2: Inspect the dataset (optional)
