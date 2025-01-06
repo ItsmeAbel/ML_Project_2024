@@ -21,7 +21,7 @@ model_checkpoint = ModelCheckpoint(
 )
 
 #training model function
-def trainmodel(model, X_train, y_train, X_test, y_test, epochs_in=10, batch_size_in=500):
+def trainmodel(model, X_train, y_train, X_test, y_test, epochs_in=10, batch_size_in=100):
     
     # define model training properties
     model.compile(optimizer='adam', loss='mean_absolute_error', metrics = ['accuracy'])

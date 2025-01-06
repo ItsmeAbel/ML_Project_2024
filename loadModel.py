@@ -10,6 +10,7 @@ X_test= np.array([
     [46,0,0,138,243,0,0,152,1,0.0,1,0,2]
 ])
 
+#right answer: 00111
 rf_model = load("randomForestModel.joblib")
 
 #make predictions using the loaded model
