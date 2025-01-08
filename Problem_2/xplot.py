@@ -2,7 +2,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 
-df = pd.read_csv("OHEcleanedData.csv")
+df = pd.read_csv("OutlierfreeOHE.csv")
 
 # Heatmap for correlations
 corr = df.corr()

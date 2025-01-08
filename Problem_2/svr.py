@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import matplotlib.pyplot as plt
 
-RawData = pd.read_csv("LabelcleanedData.csv") #read the csv file using pandas
+RawData = pd.read_csv("OutlierfreeOHE.csv") #read the csv file using pandas
 
 #define the inputs
 xinp = RawData.drop(columns=['credit_score'])

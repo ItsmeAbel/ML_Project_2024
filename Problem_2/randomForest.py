@@ -6,7 +6,7 @@ from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import numpy as np
 
 # Step 1: Load the CSV File
-file_path = "OHEcleanedData.csv"  # Replace with the path to your CSV file
+file_path = "OutlierfreeOHE.csv"  # Replace with the path to your CSV file
 data = pd.read_csv(file_path)
 
 #Explore the Data
@@ -16,7 +16,8 @@ print("\nSummary Statistics:")
 print(data.describe())
 
 #Separate Features and Target
-X = data.drop(columns=['credit_score'])
+X = data[['person_age', 'person_emp_exp', 'cb_person_cred_hist_length', 'person_education_Bachelor','person_education_Master',
+       'previous_loan_defaults_on_file_No','previous_loan_defaults_on_file_Yes','person_education_High School','person_education_Other']]
 y = data['credit_score']
 
 # Split Data into Training and Testing Sets

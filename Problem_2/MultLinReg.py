@@ -5,7 +5,7 @@ from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 
 
-RawData = pd.read_csv("LabelcleanedData.csv") #read the csv file using pandas
+RawData = pd.read_csv("OutlierfreeOHE.csv") #read the csv file using pandas
 
 #define the inputs
 xinp = RawData.drop(columns = ['credit_score'])
@@ -48,10 +48,6 @@ print("R2: ", r2_lin)
 plt.figure(1)
 # plotting a scatterplot
 plt.scatter(y_test_Lin, result, color='blue', alpha=0.7)
-#sns.scatterplot(x='oldagreement',
-              # y='newagreement', data=df)
-
-#plt.plot(X_result, predictions, color='blue', linewidth=2, label='avtalspris')
 
 # Add labels and a legend
 plt.xlabel('Target values')

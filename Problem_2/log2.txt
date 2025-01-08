@@ -151,7 +151,7 @@ Tried implementing a normalizer and/or dropout reguralization techiques incase t
 - Result remains the same!
 
 - i also used a corelation matrix to visualize the feature corelation. This is found in "xplot.py"
-Here we can see, on the credit_score row, the blue cells and the cells with 0 value have little to no relevancy to the models accuracy
+Here we can see, on the credit_score row, that cells with 0 value have little to no relevancy to the models accuracy
 and therefore can be removed.
 i hand picked the 7 modt relevant features and tried with them
 reuult: 
@@ -161,4 +161,30 @@ Root Mean Squared Error (RMSE): 51.60
 R2 Score: -0.0182
 
 Created EDA.py and did more analysis on the data set, which admittedly i should have done more thoroughly from the start
-Using the EDA i can get better insight into the data, which i can use to better prepare the training data
+Using the EDA i can get better insight into the data, which i can use to better prepare the training data.
+The new csv file is named "OutlierfreeOHE.csv"
+I have now done a thorough data analysis
+I sperated the data into numerical and catagorical data.
+I removed and/or grouped outliers from both types of data. After removing the ouliers, the rows of data decreased from ~45k to ~28k
+I then used one hot encoding to encode the data
+Thereafter, i used a correlation matrix to identify which the most relevant columns. This is found in the "xplot.py" file
+I then trained the NN with the new csv file and got the following results
+        Mean Absolute Error: 37.6565
+        Mean Squared Error: 2088.6528
+        Root Mean Squared Error (RMSE): 45.70
+        R2 Score: 0.0765
+which is slightly better.
+I tried using the parametric ReLU again with the new file. File "PReLUNN.py"
+Result: Mean Absolute Error: 38.2412
+        Mean Squared Error: 2433.6684
+        Root Mean Squared Error (RMSE): 49.33
+        R2 Score: -0.0761
+which isn't any better.
+I also tried the new csv file with random forest but got no better result.
+I also tried removing the catagorical data outliers instead of grouping them but didn't show any improvments.
+I have concluded that this is as high accuraccy as i can get for now. The only thing left to do is to pick a higher epoch and retrain the model.
+FInal result with 100 epochs but early stopping: Mean Absolute Error: 36.9577
+                                                                Mean Squared Error: 2071.9989
+                                                                Root Mean Squared Error (RMSE): 45.52
+                                                                R2 Score: 0.0838
+The final model is saved in "NNModel.joblib"

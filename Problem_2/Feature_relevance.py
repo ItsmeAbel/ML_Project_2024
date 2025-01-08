@@ -4,7 +4,7 @@ from sklearn.feature_selection import mutual_info_regression
 from sklearn.model_selection import train_test_split #used to split the data into training and learning sets
 
 
-df = pd.read_csv("OHEcleanedData.csv")
+df = pd.read_csv("OutlierfreeOHE.csv")
 # Assuming `df` is your DataFrame with features and `target` as your target variable
 correlation = df.corrwith(df['credit_score']).sort_values(ascending=False)
 print(correlation)

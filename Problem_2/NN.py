@@ -27,8 +27,8 @@ def load_data(file_path):
 def preprocess_data(data, target_column):
     
     # Separate features and target
-    X = data[['person_age', 'person_emp_exp', 'cb_person_cred_hist_length', 'person_education_Bachelor','person_education_Doctorate','person_education_Master',
-       'previous_loan_defaults_on_file_No']]
+    X = data[['person_age', 'person_emp_exp', 'cb_person_cred_hist_length', 'person_education_Bachelor','person_education_Master',
+       'previous_loan_defaults_on_file_No','previous_loan_defaults_on_file_Yes','person_education_High School','person_education_Other']]
     y = data[target_column]
     
     # Split into training and testing sets
@@ -48,13 +48,13 @@ def build_model(input_dim):
     model.add(Dense(80, activation=act_func, input_dim=input_dim))
     model.add(Dense(95, activation=act_func))
     model.add(Dense(120, activation=act_func))
-    model.add(Dense(150, activation=act_func))
+    model.add(Dense(190, activation=act_func))
     model.add(Dense(120, activation=act_func))
     model.add(Dropout(0.2)) #used for reguralization. drops 20% of the neurons to avoid overfitting
     model.add(Dense(95, activation=act_func))
     model.add(Dropout(0.2))
     model.add(Dense(1, activation='linear'))  # Output layer for regression
-    model.compile(optimizer='adam', loss='mse', metrics=['mae'])
+    model.compile(optimizer='adam', loss='mse', metrics=['mse'])
     return model
 
 # Early stopping to avoid overfitting
@@ -65,7 +65,7 @@ def train_model(model, X_train, y_train):
     #early_stop = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)
     history = model.fit(X_train, y_train, 
                         validation_split=0.2, 
-                        epochs=10, 
+                        epochs=100, 
                         batch_size=100,
                         callbacks=[early_stopping],
                         verbose=1)
@@ -105,7 +105,7 @@ def main(csv_file, target_column):
     return model, scaler, predictions
 
 
-csv_file = 'OHEcleanedData.csv'
+csv_file = 'OutlierfreeOHE.csv'
 target_column = 'credit_score'
 act_func = "relu"
 model, scaler, predictions = main(csv_file, target_column)
