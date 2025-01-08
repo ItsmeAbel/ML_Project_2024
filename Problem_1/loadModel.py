@@ -1,7 +1,7 @@
 from joblib import load
 import numpy as np
 
-#unseen data
+#5 unseen data cut from the csv file
 X_test= np.array([
     [53,1,0,110,335,0,1,143,1,3.0,1,1,3],  # First test sample
     [48,1,1,110,229,0,1,168,0,1.0,0,0,3],   # Second test sample
@@ -11,7 +11,7 @@ X_test= np.array([
 ])
 
 #right answer: 00111
-rf_model = load("randomForestModel.joblib")
+rf_model = load("randomForestModel.joblib") #loads the model
 
 #make predictions using the loaded model
 pred = rf_model.predict(X_test)

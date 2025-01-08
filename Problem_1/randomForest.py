@@ -8,12 +8,12 @@ def save_model():
     #dumb the trained model into a joblib file
     dump(rf_model, "randomForestModel.joblib")
 
-# Load dataset
+# Load csv dataset
 df = pd.read_csv('cleaned_merged_heart_dataset.csv')
 
 # Features (X) and target (y)
 X = df.iloc[:, :-1].values  # All rows, all columns except the last one
-y = df.iloc[:, -1].values   # Target: last column (assumed to be 0 or 1)
+y = df.iloc[:, -1].values   # Target column, which is the last column
 
 # Split into train and test sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -40,6 +40,6 @@ print("Confusion Matrix:\n", conf_matrix)
 class_report = classification_report(y_test, y_pred)
 print("Classification Report:\n", class_report)
 
-save_model()
+save_model() #calls the save model function
 
 

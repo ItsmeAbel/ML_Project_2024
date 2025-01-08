@@ -2,6 +2,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.feature_selection import RFE
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import numpy as np
 
@@ -24,10 +25,15 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 #Train the Random Forest Regressor
 model = RandomForestRegressor(n_estimators=100, random_state=42)
-model.fit(X_train, y_train)
+selector = RFE(model, n_features_to_select=10)
+selector.fit(X_train, y_train)
+
+# Check selected features
+selected_features = X_train.columns[selector.support_]
+print("Selected features:", selected_features)
 
 # Make Predictions
-y_pred = model.predict(X_test)
+y_pred = selector.predict(X_test)
 
 #Evaluate the Model
 mse = mean_squared_error(y_test, y_pred)
@@ -40,15 +46,3 @@ print(f"Mean Squared Error (MSE): {mse:.2f}")
 print(f"Root Mean Squared Error (RMSE): {rmse:.2f}")
 print(f"Mean Absolute Error (MAE): {mae:.2f}")
 print(f"R-squared (R2): {r2:.2f}")
-
-
-# Analyze Feature Importance
-feature_importances = model.feature_importances_
-features = X.columns
-# Get feature importances
-feature_importance = pd.Series(model.feature_importances_, index=X_train.columns).sort_values(ascending=False)
-print(feature_importance)
-
-print("\nFeature Importances:")
-for feature, importance in zip(features, feature_importances):
-    print(f"{feature}: {importance:.4f}")

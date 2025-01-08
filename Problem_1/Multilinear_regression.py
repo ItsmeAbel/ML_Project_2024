@@ -7,24 +7,25 @@ import matplotlib.pyplot as plt
 
 RawData = pd.read_csv("cleaned_merged_heart_dataset.csv") #read the csv file using pandas
 
-#define the inputs
+#define the inputs values
 xinp = RawData[['age','sex', 'cp','trestbps','chol','fbs','restecg','thalachh','exang','oldpeak','slope','ca']]
-#define the output
+#define the output value
 yout = RawData['target']
 
 #data split into training and testing sets
 X_train_Lin, X_test_Lin, y_train_Lin, y_test_Lin = train_test_split(
     xinp, yout, test_size=0.3, random_state=101) 
 
-#model
+#instance of the linear regression model
 linregmodel = LinearRegression()
 
-#Fit/taind
+#Fit/tain
 linregmodel.fit(X_train_Lin,y_train_Lin)
 
-#Predict/test
+#Predict/classify
 result = linregmodel.predict(X_test_Lin)
 
+#Evaluate the model
 mse_lin = mean_squared_error(y_test_Lin, result)
 r2_lin = r2_score(y_test_Lin, result)
 mae= mean_absolute_error(y_test_Lin, result)
@@ -46,10 +47,6 @@ print("R2: ", r2_lin)
 plt.figure(1)
 # plotting a scatterplot
 plt.scatter(y_test_Lin, result, color='blue', alpha=0.7)
-#sns.scatterplot(x='oldagreement',
-              # y='newagreement', data=df)
-
-#plt.plot(X_result, predictions, color='blue', linewidth=2, label='avtalspris')
 
 # Add labels and a legend
 plt.xlabel('Target values')
