@@ -1,4 +1,8 @@
+
 ------------------------------------Problem 2----------------------------------------------------------------------
+To see step by step progress:
+https://github.com/ItsmeAbel/ML_Project_2024/tree/main/Problem_2
+
 I've gotten the data and started with data cleaning first. The csv data is filled with numerical, string, and float values, which means that some data cleaning is required.
 The string values are catagorical and need to be encoded to numerical values.
 We can use either Label encoder or One Hot Encoding
@@ -7,7 +11,7 @@ With Label Encoding and multilinear regression model, i get the following result
 mean_squared_error :  2335.762251930094
 mean_absolute_error :  38.73413494045972
 R2:  0.08190315105789459
-which is more or less off by root(MSE) = 48
+which is more or less off by 1 root(MSE)
 Result with one hot enconding:
 Name: credit_score, Length: 45000, dtype: int64
 mean_squared_error :  2227.70672219333
@@ -108,7 +112,7 @@ person_home_ownership_OTHER           0.001172
 loan_percent_income                   0.000000
 dtype: float64
 
--- another feature rel measurment--
+-- another feature relevancy measurment--
 person_emp_exp                        0.025407
 person_age                            0.021794
 cb_person_cred_hist_length            0.020340
@@ -183,6 +187,7 @@ which isn't any better.
 I also tried the new csv file with random forest but got no better result.
 I also tried removing the catagorical data outliers instead of grouping them but didn't show any improvments.
 I have concluded that this is as high accuraccy as i can get for now. The only thing left to do is to pick a higher epoch and retrain the model.
+
 FInal result with 100 epochs but early stopping: Mean Absolute Error: 36.9577
                                                                 Mean Squared Error: 2071.9989
                                                                 Root Mean Squared Error (RMSE): 45.52

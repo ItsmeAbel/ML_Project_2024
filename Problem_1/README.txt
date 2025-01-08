@@ -1,3 +1,6 @@
+To see step by step progress:
+https://github.com/ItsmeAbel/ML_Project_2024/tree/main/Problem_1
+
 Prerequistes: Installed Anaconda for the usage of environments
         - Installed all the necessary packages suchas matplotlib, scikit-learn, pandas, numpy,tensorflow, keras etc.
 
